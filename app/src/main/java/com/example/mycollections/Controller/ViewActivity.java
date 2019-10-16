@@ -2,9 +2,10 @@ package com.example.mycollections.Controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,7 @@ public class ViewActivity extends AppCompatActivity {
     private TextView txtCity;
     private TextView txtCountry;
     private TextView txtDescription;
+    private ImageView imgView;
 
     private int position;
 
@@ -38,11 +40,13 @@ public class ViewActivity extends AppCompatActivity {
         txtCity = findViewById(R.id.txtCity);
         txtCountry = findViewById(R.id.txtCountry);
         txtDescription = findViewById(R.id.txtDescription);
+        imgView = findViewById(R.id.imgView);
 
         txtName.setText(place.getName());
         txtCity.setText(place.getCity());
         txtCountry.setText(place.getCountry());
         txtDescription.setText(place.getDescription());
+        imgView.setImageURI(Uri.parse(place.getPath()));
 
     }
 
@@ -77,4 +81,5 @@ public class ViewActivity extends AppCompatActivity {
         builder.show();
 
     }
+
 }

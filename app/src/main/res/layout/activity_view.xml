@@ -74,6 +74,13 @@
         android:textSize="22sp"
         android:textStyle="bold|italic" />
 
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:layout_weight="1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

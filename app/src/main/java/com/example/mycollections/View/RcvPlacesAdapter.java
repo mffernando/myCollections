@@ -2,9 +2,11 @@ package com.example.mycollections.View;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -47,6 +49,7 @@ public class RcvPlacesAdapter extends RecyclerView.Adapter<RcvPlacesAdapter.Plac
         holder.txtCity.setText(place.getCity());
         holder.txtCountry.setText(place.getCountry());
         holder.txtDescription.setText(place.getDescription());
+        holder.imgView.setImageURI(Uri.parse(place.getPath()));
 
         holder.layPlace.setOnClickListener(new View.OnClickListener() {
 
@@ -74,6 +77,7 @@ public class RcvPlacesAdapter extends RecyclerView.Adapter<RcvPlacesAdapter.Plac
         public TextView txtCity;
         public TextView txtCountry;
         public TextView txtDescription;
+        public ImageView imgView;
 
         public PlaceHolder(@NonNull View itemView) {
 
@@ -84,6 +88,7 @@ public class RcvPlacesAdapter extends RecyclerView.Adapter<RcvPlacesAdapter.Plac
             txtCity = itemView.findViewById(R.id.txtCity);
             txtCountry = itemView.findViewById(R.id.txtCountry);
             txtDescription = itemView.findViewById(R.id.txtDescription);
+            imgView = itemView.findViewById(R.id.imgView);
 
         }
     }

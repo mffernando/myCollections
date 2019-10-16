@@ -22,9 +22,9 @@ public class DataStore {
     private DataStore() {
 
         places = new ArrayList<>();
-        addPlace(new Place("Jardim Botânico", "Curitiba", "Brasil", "Jardim Botânico em Curitiba"));
-        addPlace(new Place("Praça Espanha", "Curitiba", "Brasil", "Praça Espanha em Curitiba"));
-        addPlace(new Place("Praça Japão", "Curitiba", "Brasil", "Praça Japão em Curitiba"));
+        addPlace(new Place("Jardim Botânico", "Curitiba", "Brasil", "Jardim Botânico em Curitiba", "/sdcard/Pictures/hd_0.jpg"));
+        addPlace(new Place("Praça Espanha", "Curitiba", "Brasil", "Praça Espanha em Curitiba", "/sdcard/Pictures/hd_1.jpg"));
+        addPlace(new Place("Praça Japão", "Curitiba", "Brasil", "Praça Japão em Curitiba", "/sdcard/Pictures/hd_2.jpg"));
 
     }
 

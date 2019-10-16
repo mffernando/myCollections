@@ -12,19 +12,30 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.mycollections.Model.DataStore;
 import com.example.mycollections.R;
 import com.example.mycollections.View.RcvPlacesAdapter;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rcvPlaces;
     private RcvPlacesAdapter rcvPlacesAdapter;
+
+    private Button btnImage;
+
+    private int PICK_IMAGE_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +53,23 @@ public class MainActivity extends AppCompatActivity {
         LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(this);
         broadcastManager.registerReceiver(updatePlaces, new IntentFilter("updatePlaces"));
 
+        //chooseImage();
+
+//        btnImage = findViewById(R.id.rcvPlaces);
+//        btnImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                chooseImage();
+//            }
+//        });
+
+    }
+
+    public void chooseImage(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
     @Override
@@ -49,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onPause();
 
-        if (isFinishing()){
+        if (isFinishing()) {
 
             LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(this);
             broadcastManager.unregisterReceiver(updatePlaces);
@@ -70,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.mnuAdd:
 
@@ -100,7 +128,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            Uri uri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                //Log.d(TAG, String.valueOf(bitmap));
+
+                ImageView imageView = findViewById(R.id.imgView);
+                imageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private BroadcastReceiver updatePlaces = new BroadcastReceiver() {
@@ -111,4 +158,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
 }

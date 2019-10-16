@@ -38,7 +38,23 @@
         android:textSize="16sp"
         android:layout_marginBottom="5dp"/>
 
-    <View
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:layout_weight="1" />
+
+<!--    <Button-->
+<!--        android:id="@+id/btnImage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="0"-->
+<!--        android:text="Load Picture"-->
+<!--        android:layout_gravity="center"/>-->
+
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="#555555" />

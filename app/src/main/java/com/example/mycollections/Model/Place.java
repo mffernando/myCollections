@@ -6,12 +6,15 @@ public class Place {
     private String city;
     private String country;
     private String description;
+    private String path;
 
-    public Place(String name, String city, String country, String description) {
+    public Place(String name, String city, String country, String description, String path) {
         this.name = name;
         this.city = city;
         this.country = country;
         this.description = description;
+        this.path = path;
+
     }
 
     public String getName() {
@@ -45,4 +48,13 @@ public class Place {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
 }
