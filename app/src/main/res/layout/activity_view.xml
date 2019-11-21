@@ -9,16 +9,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lugar: "
+        android:text="Título: "
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="#5555FF" />
 
     <TextView
-        android:id="@+id/txtName"
+        android:id="@+id/txtTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome do Lugar"
+        android:text="Título"
         android:gravity="right"
         android:textSize="22sp"
         android:textStyle="bold|italic" />
@@ -26,16 +26,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cidade: "
+        android:text="Autor: "
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="#5555FF" />
 
     <TextView
-        android:id="@+id/txtCity"
+        android:id="@+id/txtAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome da Cidade"
+        android:text="Autor"
         android:gravity="right"
         android:textSize="22sp"
         android:textStyle="bold|italic" />
@@ -43,16 +43,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="País: "
+        android:text="Editora: "
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="#5555FF" />
 
     <TextView
-        android:id="@+id/txtCountry"
+        android:id="@+id/txtPublisher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome do País"
+        android:text="Editora"
         android:gravity="right"
         android:textSize="22sp"
         android:textStyle="bold|italic" />
@@ -69,17 +69,34 @@
         android:id="@+id/txtDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Descrição do Lugar"
+        android:text="Descrição"
         android:gravity="right"
         android:textSize="22sp"
         android:textStyle="bold|italic" />
 
     <ImageView
         android:id="@+id/imgView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="center"
         android:layout_weight="1" />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Imagem: "-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textColor="#5555FF" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtImage"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Imagem"-->
+<!--        android:gravity="right"-->
+<!--        android:textSize="22sp"-->
+<!--        android:textStyle="bold|italic" />-->
 
     <RelativeLayout
         android:layout_width="match_parent"

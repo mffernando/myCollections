@@ -7,26 +7,26 @@
     android:layout_margin="10dp">
 
     <TextView
-        android:id="@+id/txtName"
+        android:id="@+id/txtTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Place Name"
+        android:text="Título"
         android:textSize="16sp"
         android:layout_marginBottom="5dp"/>
 
     <TextView
-        android:id="@+id/txtCity"
+        android:id="@+id/txtAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="City Name"
+        android:text="Autor"
         android:textSize="16sp"
         android:layout_marginBottom="5dp"/>
 
     <TextView
-        android:id="@+id/txtCountry"
+        android:id="@+id/txtPublisher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Country Name"
+        android:text="Editora"
         android:textSize="16sp"
         android:layout_marginBottom="5dp"/>
 
@@ -34,9 +34,17 @@
         android:id="@+id/txtDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="Descrição"
         android:textSize="16sp"
         android:layout_marginBottom="5dp"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtImage"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Image"-->
+<!--        android:textSize="16sp"-->
+<!--        android:layout_marginBottom="5dp"/>-->
 
         <ImageView
             android:id="@+id/imgView"

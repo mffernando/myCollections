@@ -2,7 +2,6 @@ package com.example.mycollections.View;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +44,13 @@ public class RcvPlacesAdapter extends RecyclerView.Adapter<RcvPlacesAdapter.Plac
 
         Place place = places.get(position);
 
-        holder.txtName.setText(place.getName());
-        holder.txtCity.setText(place.getCity());
-        holder.txtCountry.setText(place.getCountry());
+        holder.txtTitle.setText(place.getTitle());
+        holder.txtAuthor.setText(place.getAuthor());
+        holder.txtPublisher.setText(place.getPublisher());
         holder.txtDescription.setText(place.getDescription());
-        holder.imgView.setImageURI(Uri.parse(place.getPath()));
+        holder.imgImage.setImageBitmap(place.getImage());
+        //holder.txtImage.setText(place.getImage());
+        //holder.txtImage.setImageURI(Uri.parse(place.getImage()));
 
         holder.layPlace.setOnClickListener(new View.OnClickListener() {
 
@@ -73,22 +74,24 @@ public class RcvPlacesAdapter extends RecyclerView.Adapter<RcvPlacesAdapter.Plac
     public class PlaceHolder extends RecyclerView.ViewHolder{
 
         public LinearLayout layPlace;
-        public TextView txtName;
-        public TextView txtCity;
-        public TextView txtCountry;
+        public TextView txtTitle;
+        public TextView txtAuthor;
+        public TextView txtPublisher;
         public TextView txtDescription;
-        public ImageView imgView;
+        public ImageView imgImage;
+        //public TextView txtImage;
 
         public PlaceHolder(@NonNull View itemView) {
 
             super(itemView);
 
             layPlace = itemView.findViewById(R.id.layPlace);
-            txtName = itemView.findViewById(R.id.txtName);
-            txtCity = itemView.findViewById(R.id.txtCity);
-            txtCountry = itemView.findViewById(R.id.txtCountry);
+            txtTitle = itemView.findViewById(R.id.txtTitle);
+            txtAuthor = itemView.findViewById(R.id.txtAuthor);
+            txtPublisher = itemView.findViewById(R.id.txtPublisher);
             txtDescription = itemView.findViewById(R.id.txtDescription);
-            imgView = itemView.findViewById(R.id.imgView);
+            imgImage = itemView.findViewById(R.id.imgView);
+            //txtImage = itemView.findViewById(R.id.txtImage);
 
         }
     }

@@ -4,7 +4,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,34 +21,38 @@ import com.example.mycollections.R;
 
 public class ViewActivity extends AppCompatActivity {
 
-    private TextView txtName;
-    private TextView txtCity;
-    private TextView txtCountry;
+    private TextView txtTitle;
+    private TextView txtAuthor;
+    private TextView txtPublisher;
     private TextView txtDescription;
+    private TextView txtImage;
     private ImageView imgView;
+
 
     private int position;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
         position = getIntent().getIntExtra("placePosition", 0);
         Place place = DataStore.sharedInstance().getPlace(position);
+        //Place place = DataStore.sharedInstance().getPlace(position);
 
-        txtName = findViewById(R.id.txtName);
-        txtCity = findViewById(R.id.txtCity);
-        txtCountry = findViewById(R.id.txtCountry);
+        txtTitle = findViewById(R.id.txtTitle);
+        txtAuthor = findViewById(R.id.txtAuthor);
+        txtPublisher = findViewById(R.id.txtPublisher);
         txtDescription = findViewById(R.id.txtDescription);
+        //txtImage = findViewById(R.id.txtImage);
         imgView = findViewById(R.id.imgView);
 
-        txtName.setText(place.getName());
-        txtCity.setText(place.getCity());
-        txtCountry.setText(place.getCountry());
+        txtTitle.setText(place.getTitle());
+        txtAuthor.setText(place.getAuthor());
+        txtPublisher.setText(place.getPublisher());
         txtDescription.setText(place.getDescription());
-        imgView.setImageURI(Uri.parse(place.getPath()));
+        //txtImage.setText(place.getImage().toString());
+        //imgView.setImageBitmap(place.getImage());
 
     }
 
@@ -64,7 +70,7 @@ public class ViewActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Atenção");
-        builder.setMessage("Tem certeza que deseja remover este lugar?");
+        builder.setMessage("Tem certeza que deseja remover este livro?");
         builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

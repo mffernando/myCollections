@@ -13,12 +13,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lugar:"
+            android:text="Título:"
             android:textStyle="bold"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txtName"
+            android:id="@+id/txtTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -33,12 +33,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cidade:"
+            android:text="Autor:"
             android:textStyle="bold"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txtCity"
+            android:id="@+id/txtAuthor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -53,12 +53,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="País:"
+            android:text="Editora:"
             android:textStyle="bold"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txtCountry"
+            android:id="@+id/txtPublisher"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -90,6 +90,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Imagem:"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/txtImage"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1" />-->
+
         <ImageView
             android:id="@+id/imgView"
             android:layout_width="200dp"
@@ -105,10 +118,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnImage"
+            android:id="@+id/btnGallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Imagem"
+            android:text="Galeria"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera"
             android:textStyle="bold"
             android:textSize="16sp" />
 
