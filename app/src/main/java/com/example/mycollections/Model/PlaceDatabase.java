@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -41,13 +40,6 @@ public class PlaceDatabase extends SQLiteOpenHelper {
                 "publisher TEXT, " +
                 "description TEXT, " +
                 "image BLOB);";
-
-//        String sql = "CREATE TABLE IF NOT EXISTS " + DB_TABLE + "(" +
-//                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                "name TEXT, " +
-//                "city TEXT, " +
-//                "country TEXT, " +
-//                "description TEXT);";
 
         db.execSQL(sql);
 
@@ -128,7 +120,7 @@ public class PlaceDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.query(DB_TABLE, null, null, null, null, null, "title");
         List<Place> places = new ArrayList<>();
 
-        if (cursor.moveToFirst() && cursor.getCount() > 0) {
+        if (cursor.moveToFirst()) {
             do {
 
                 Place place = new Place(
@@ -138,36 +130,19 @@ public class PlaceDatabase extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndex("publisher")),
                         cursor.getString(cursor.getColumnIndex("description")),
                         blobImage(cursor)
-                //stringToBitmap(String.valueOf(cursor.getBlob(cursor.getColumnIndex("image"))))
-                //cursor.getString(cursor.getColumnIndex("image"))
+
                 );
 
                 places.add(place);
             }
 
             while (cursor.moveToNext());
-            //cursor.close();
+            cursor.close();
 
         }
 
         return places;
-    }
 
-    private static String bitmapToString(Bitmap bitmap) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] b = baos.toByteArray();
-        return Base64.encodeToString(b, Base64.DEFAULT);
-    }
-
-    private static Bitmap stringToBitmap(String encodedString) {
-        try {
-            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
-            return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-        } catch (Exception e) {
-            e.getMessage();
-            return null;
-        }
     }
 
     public Bitmap blobImage(Cursor cursor) {
@@ -178,5 +153,4 @@ public class PlaceDatabase extends SQLiteOpenHelper {
         return image;
 
     }
-
 }

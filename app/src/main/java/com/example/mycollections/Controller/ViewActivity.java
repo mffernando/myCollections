@@ -38,21 +38,18 @@ public class ViewActivity extends AppCompatActivity {
 
         position = getIntent().getIntExtra("placePosition", 0);
         Place place = DataStore.sharedInstance().getPlace(position);
-        //Place place = DataStore.sharedInstance().getPlace(position);
 
         txtTitle = findViewById(R.id.txtTitle);
         txtAuthor = findViewById(R.id.txtAuthor);
         txtPublisher = findViewById(R.id.txtPublisher);
         txtDescription = findViewById(R.id.txtDescription);
-        //txtImage = findViewById(R.id.txtImage);
         imgView = findViewById(R.id.imgView);
 
         txtTitle.setText(place.getTitle());
         txtAuthor.setText(place.getAuthor());
         txtPublisher.setText(place.getPublisher());
         txtDescription.setText(place.getDescription());
-        //txtImage.setText(place.getImage().toString());
-        //imgView.setImageBitmap(place.getImage());
+        imgView.setImageBitmap(place.getImage());
 
     }
 

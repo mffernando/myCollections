@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">myCollections</string>
+    <string name="keyword">Keyword</string>
 </resources>

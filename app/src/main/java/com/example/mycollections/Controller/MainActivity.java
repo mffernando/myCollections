@@ -13,12 +13,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.mycollections.Model.DataStore;
 import com.example.mycollections.R;
@@ -29,19 +26,12 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rcvPlaces;
     private RcvPlacesAdapter rcvPlacesAdapter;
 
-//    private Button btnGallery;
-//    private Button btnCamera;
-//
-//    private int PICK_IMAGE_REQUEST = 200;
-//    private int PICK_CAMERA_REQUEST = 300;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         DataStore.sharedInstance().setContext(this);
-        //DataStore.sharedInstance().setContext(this);
 
         rcvPlaces = findViewById(R.id.rcvPlaces);
         rcvPlacesAdapter = new RcvPlacesAdapter(DataStore.sharedInstance().getPlaces(), this);
@@ -74,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.search, menu);
 
         return true;
 
@@ -113,26 +104,6 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-//
-//            Uri uri = data.getData();
-//
-//            try {
-//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-//                //Log.d(TAG, String.valueOf(bitmap));
-//
-//                ImageView imageView = findViewById(R.id.imgView);
-//                imageView.setImageBitmap(bitmap);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
     private BroadcastReceiver updatePlaces = new BroadcastReceiver() {
         @Override

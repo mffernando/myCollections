@@ -1,11 +1,6 @@
 package com.example.mycollections.Model;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.util.Base64;
-
-import java.io.ByteArrayOutputStream;
 
 public class Place {
 
@@ -81,35 +76,5 @@ public class Place {
         this.image = image;
     }
 
-    private static String bitmapToString(Bitmap bitmap) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] b = baos.toByteArray();
-        return Base64.encodeToString(b, Base64.DEFAULT);
-    }
-
-    private static Bitmap stringToBitmap(String encodedString) {
-        try {
-            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
-            return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-        } catch (Exception e) {
-            e.getMessage();
-            return null;
-        }
-    }
-
-    public static Bitmap resizeBitmap(Bitmap bitmap) {
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        float scaleWidth = 250 / width;
-        float scaleHeight = 250 / height;
-
-        Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
-        Bitmap resizedBitmap = Bitmap.createBitmap(
-                bitmap, 0, 0, width, height, matrix, false);
-        bitmap.recycle();
-        return resizedBitmap;
-    }
 
 }
